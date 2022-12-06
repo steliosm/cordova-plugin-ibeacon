@@ -94,9 +94,18 @@
 
         <config-file target="AndroidManifest.xml" parent="/manifest">
             <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
             <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+            <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
             <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+            <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
         </config-file>
+
+        <service
+           android:name="org.altbeacon.beacon.service.BeaconService"
+           android:foregroundServiceType="location">
+        </service>
 
         <source-file src="src/android/LocationManager.java" target-dir="src/com/unarin/cordova/beacon" />
         <source-file src="src/android/IBeaconServiceNotifier.java" target-dir="src/com/unarin/cordova/beacon" />
